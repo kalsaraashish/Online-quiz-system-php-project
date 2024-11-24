@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    scroll-behavior: smooth;
+    color: black;
+}
+
+.body {
+    background-color: #FEF3E2;
+    height: 100%;
+    width: 100%;
+}
+
+.main-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.ex-display {
+    background-color: rgb(247, 246, 246);
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    height: 20rem;
+    width: 90%;
+}
+
+.q-no {
+    display: flex;
+    justify-content: right;
+    margin: 2.5rem 0.5rem;
+    padding: 1rem;
+    padding-right: 5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.qustion {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 2rem 2rem 2rem 5rem;
+}
+
+.opt {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 1rem 0rem 0rem 5rem;
+}
+
+.opt-gap {
+    margin: 2rem;
+}
+
+.opt-gap input[type="radio"] {
+    height: 1rem;
+    width: 1rem;
+    cursor: pointer;
+}
+
+.opt-gap label {
+    margin-left: 5px;
+}
+
+@keyframes ex-display {
+    0% {
+        opacity: 0;
+        transform: translatey(0%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+}
+
+.pre-btn {
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(89, 181, 132);
+    height: 2rem;
+    width: 8rem;
+    margin: 0rem 3rem 5rem 8rem;
+    cursor: pointer;
+}
+
+.n-btn {
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(181, 172, 89);
+    height: 2rem;
+    width: 8rem;
+    cursor: pointer;
+    margin-left: 0rem 3rem 5rem 1rem;
+}
+
+.set-btn {
+    position: relative;
+    top: 0;
+}
+
+@media screen and (max-width:455px) {
+    .pre-btn {
+        height: 1.8rem;
+        width: 5rem;
+        font-size: 0.2;
+        margin-left: 0.8rem;
+    }
+
+    .n-btn {
+        height: 1.8rem;
+        width: 5rem;
+        font-size: 0.2;
+        margin-left: 0.3rem;
+    }
+
+    .qustion {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 2rem 2rem 2rem 1rem;
+    }
+
+    .opt {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 1rem 0rem 0rem 0.5rem;
+    }
+
+    .q-no {
+        margin: 0.5rem;
+        padding: 1rem;
+        padding-right: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+}

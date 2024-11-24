@@ -1,0 +1,125 @@
+.massage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    height: 40rem;
+    min-height: fit-content;
+    width: 100%;
+    background-color: rgb(224 238 228);
+    padding: 20px;
+}
+.ms-img{
+   
+    animation: left-side linear .8s;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+.ms-img h2{
+    font-weight: 600;
+    font-size: 3rem;  
+}
+
+.ms-img img {
+    animation: bounce 0.5s ease infinite alternate;
+    width: 100%;
+    max-width: 300px;
+}
+
+.ms-form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    animation: right-side linear .8s;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+
+.ms-form label {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+.ms-form input{
+    height: 2rem;
+}
+.ms-form input,
+.ms-form textarea {
+    outline: none;
+    border: 1px solid rgb(125, 122, 88);
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    margin: 0.5rem 0;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.533);
+}
+
+input:hover, .ms-box:hover {
+    box-shadow: 0px 2px 10px rgb(111, 106, 92);
+    transition: all 0.5s ease-in-out;
+}
+input[type=submit]{
+    border: 1px solid rgb(125, 122, 88);
+    padding: 0;
+    font-size: 1rem;
+    color: black;
+    width: 6rem;
+}
+input[type=submit]:hover{
+    box-shadow: 0px 2px 5px rgb(111, 106, 92);
+    /* box-shadow: none; */
+    background-color: #d0c4c4;
+    transition: all 0.3s ease-in-out;
+}
+
+
+@keyframes left-side {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes right-side {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (min-width: 768px) {
+    .massage {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .ms-form {
+        margin-left: 20px;
+    }
+}
+@media screen and (max-width:400px) {
+    .ms-img h2{
+        font-weight: 600;
+        font-size: 1.5rem;  
+    }
+    .ms-img img {
+        width: 70%;
+        /* max-width: 100px; */
+    }
+}

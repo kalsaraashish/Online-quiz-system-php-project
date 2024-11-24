@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    text-transform: capitalize;
+    list-style: none;
+}
+
+.h1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0rem 3rem;
+    padding: 2rem;
+    border-bottom: 2px solid black;
+}
+.h1 h1{
+    color: black;
+    padding-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    animation:main 0.8s ease-in;
+}
+.arrow{
+    cursor: pointer;
+    height: 3rem;
+    width: auto;
+}
+.main {
+    margin-left: 5rem;
+    height: auto;
+    width: auto;
+    animation:main 0.8s ease-in;
+}
+@keyframes main {
+    0% {
+        opacity: 0;
+        transform: translatey(0%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+form {
+    margin-top: 4rem;
+}
+
+form input {
+    height: 2.5rem;
+    width: 50vw;
+    border: 1px solid #fea33c;
+    border-radius: 4px;
+    padding: 0px 8px;
+    margin: 1.3rem 0rem;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+form input:hover{
+    box-shadow: 0px 0px 8px #fea33c;
+    transition: all 0.7s;
+}
+.edit-btn a{
+    color:black;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background-color: #59b2c06e;
+}
+.edit-btn a:hover{
+    box-shadow: 0px 0px 10px #2e585f61;
+    transition: all 0.7s;
+}
+.delete-btn a{
+    color:black;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background-color: #ff00006e;
+}
+.delete-btn a:hover{
+    box-shadow: 0px 0px 10px #ff00006e;
+    transition: all 0.7s;
+}
+.label {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.btn{
+    width: 13rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: #fea33c;
+    border: 1px solid #fea33c;
+}
+.btn:hover{
+    background-color: #fea33c;
+    box-shadow: 0px 0px 10px #fea33c;
+    transition: all 0.7s;
+    cursor: pointer;
+}
+.tb th {
+    /* border-bottom: 2px solid black; */
+    border-collapse: collapse;
+}
+.tb{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table{
+    margin: 0.5rem;
+    border-collapse: collapse;
+}
+table,
+th,
+td {
+    border: 1px solid;
+    padding: 10px;
+    text-align: center;
+    color: black;
+}
+@media screen and (max-width:951px) {
+    form input{
+        max-width: 60vw;
+    }
+    .tb{
+        overflow-x:auto;
+    }
+}
+@media screen and (max-width:900px) {
+    .btn{
+        font-size:1rem;
+        max-width: 9rem;
+        max-height: 2rem;
+    }
+}
+@media screen and (max-width:850px) {
+    .h1 h1{
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    .label{
+        font-size:1.2rem;
+    }
+    form input {
+        font-size: 0.8rem;
+        font-weight: normal;
+    }
+    table,
+th,
+td {
+    font-size: 0.7rem;
+    padding: 6px;
+}
+.edit-btn a{
+    font-weight: normal;
+    padding: 0.35rem;
+    background-color: #59b2c06e;
+}
+.delete-btn a{
+    font-weight: normal;
+    padding: 0.35rem;
+}
+}
+@media screen and (max-width:550px) {
+    /* .btn{
+        min-width: 36vw;
+        min-height: 6vh;
+    } */
+    .h1{
+        padding: 0rem;
+    }
+    .h1 h1{
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+    .arrow{
+        display: none;
+    }
+}
+@media screen and (max-width:430px) {
+    .h1 h1{
+        font-size: 0.8rem;
+    } 
+    .label{
+        margin: 0rem;
+        font-size:1rem;
+    }
+    form input {
+        height: 2rem;
+        margin: 0.5rem 0rem 1rem 0rem;
+    }
+    .btn{
+        font-size:0.6rem;
+        max-width: 6rem;
+        max-height: 1.5rem;
+    }
+}

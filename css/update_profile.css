@@ -1,0 +1,159 @@
+.body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(224 238 228);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease;
+    padding: 20px;
+}
+
+.profile-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin: .8rem 0rem;
+    transform: translateY(20px);
+    animation: slideUp 0.5s ease forwards;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #ff9500;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.profile-image:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.profile-container h2 {
+    margin: 10px 0;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+}
+
+.profile-info {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-info label {
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 5px;
+}
+.show-password {
+    display: flex;
+    align-items: left;
+    margin: 0.5rem 0rem;
+}
+.show-password input[type="checkbox"]{
+    width: 2rem;
+}
+
+.show-password label {
+    margin-left: 10px;
+    font-weight: bold;
+    color: #666;
+}
+.profile-info input,
+.profile-info select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-container input[type='submit'] {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Make button full width */
+}
+
+.button-container input[type='submit']:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Media queries for smaller screens */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .profile-container {
+        padding: 15px;
+    }
+
+    .profile-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-container h2 {
+        font-size: 20px;
+    }
+
+    .profile-info input,
+    .profile-info select {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .button-container input[type='submit'] {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* Media queries for tablets and medium devices */
+@media (min-width: 601px) and (max-width: 900px) {
+    .profile-container {
+        max-width: 90%; /* Increase container width for tablets */
+    }
+
+    .profile-container h2 {
+        font-size: 22px;
+    }
+
+    .profile-info input,
+    .profile-info select {
+        font-size: 15px;
+    }
+
+    .button-container input[type='submit'] {
+        font-size: 15px;
+        padding: 11px;
+    }
+}
