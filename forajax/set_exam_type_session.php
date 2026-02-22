@@ -15,6 +15,7 @@ $end_time = $_SESSION["end_time"] = date("Y-m-d H:i:s", strtotime('+' . $_SESSIO
 $_SESSION["end_time"] = $end_time;
 $_SESSION["exam_start"] = "yes";
 ?>
-<script>
-    window.location = "../deshbord.php";
-</script>
+<?php
+header("Location: ../deshbord.php");
+exit();
+?>
