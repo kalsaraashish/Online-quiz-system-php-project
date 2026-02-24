@@ -20,50 +20,93 @@ $data = mysqli_fetch_array($userdata);
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
         body { font-family: 'Poppins', sans-serif; }
         .glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.15); }
+        .glass-nav { background: rgba(15,12,41,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.1); }
         .hero-bg { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #1e40af 100%); }
         .card-hover { transition: transform 0.25s, box-shadow 0.25s; }
         .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(99,102,241,0.3); }
         .sub-menu { display: none; position: absolute; right: 0; top: 60px; min-width: 220px; z-index: 100; }
         .sub-menu.open { display: block; }
         .carousel-inner img { max-height: 420px; object-fit: cover; border-radius: 1rem; }
+        #mobile-menu { transition: max-height 0.3s ease, opacity 0.3s ease; max-height: 0; opacity: 0; overflow: hidden; }
+        #mobile-menu.open { max-height: 400px; opacity: 1; }
         /* hide bootstrap-only class from interfering */
     </style>
 </head>
 <body class="bg-gray-950 text-white">
 
     <!-- HEADER / NAV -->
-    <header class="glass sticky top-0 z-50 px-4 sm:px-8 py-3 flex items-center justify-between shadow-xl">
-        <div class="flex items-center gap-3">
-            <img src="img/quiz_time.png" alt="QuizMaster" class="h-10 w-10 rounded-lg">
-            <span class="font-bold text-xl text-indigo-300 hidden sm:inline">QuizMaster</span>
-        </div>
-        <nav class="flex items-center gap-2 sm:gap-6">
-            <a href="#home" class="text-indigo-200 hover:text-white font-medium transition hidden md:inline">Home</a>
-            <a href="#About_Us" class="text-indigo-200 hover:text-white font-medium transition hidden md:inline">About Us</a>
-            <a href="#Message_Us" class="text-indigo-200 hover:text-white font-medium transition hidden md:inline">Message Us</a>
-            <div class="relative">
-                <img src="<?php echo ($data['gender']=='male') ? 'images/male.png' : 'images/female.png'; ?>"
-                    alt="User" class="h-10 w-10 rounded-full border-2 border-indigo-400 cursor-pointer object-cover shadow"
-                    onclick="open_menu()">
-                <div class="sub-menu glass rounded-xl shadow-2xl p-4" id="sub-menu">
-                    <div class="flex items-center gap-3 mb-3">
-                        <img src="<?php echo ($data['gender']=='male') ? 'images/male.png' : 'images/female.png'; ?>"
-                            class="h-10 w-10 rounded-full border border-indigo-400 object-cover" alt="User">
-                        <div>
-                            <p class="text-xs text-indigo-300">Hello,</p>
-                            <p class="font-semibold text-white"><?php echo $_SESSION["username"]; ?></p>
-                        </div>
-                    </div>
-                    <hr class="border-white/20 mb-3">
-                    <a href="user_profile.php" class="flex items-center gap-2 text-indigo-200 hover:text-white py-1.5 rounded-lg hover:bg-white/10 px-2 transition">
-                        <img src="img/profile.png" class="h-5 w-5" alt=""> Edit Profile
-                    </a>
-                    <a href="logout.php" class="flex items-center gap-2 text-indigo-200 hover:text-white py-1.5 rounded-lg hover:bg-white/10 px-2 transition mt-1">
-                        <img src="img/logout.png" class="h-5 w-5" alt=""> Log Out
-                    </a>
+    <header class="glass-nav sticky top-0 z-50 shadow-xl">
+        <div class="px-4 sm:px-8 py-3 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <a href="home.php">
+                    <img src="img/quiz_time.png" alt="QuizMaster" class="h-10 w-10 rounded-lg">
+                </a>
+                <div class="leading-tight">
+                    <span class="font-bold text-base text-indigo-300 block">QuizMaster</span>
+                    <span class="text-indigo-500 text-xs font-normal -mt-1 block">Quiz System</span>
                 </div>
             </div>
-        </nav>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-1">
+                <a href="#home" class="px-3 py-2 rounded-lg text-indigo-200 hover:text-white hover:bg-indigo-800/50 text-sm font-medium transition">🏠 Home</a>
+                <a href="#About_Us" class="px-3 py-2 rounded-lg text-indigo-200 hover:text-white hover:bg-indigo-800/50 text-sm font-medium transition">ℹ️ About Us</a>
+                <a href="#Message_Us" class="px-3 py-2 rounded-lg text-indigo-200 hover:text-white hover:bg-indigo-800/50 text-sm font-medium transition">💬 Message</a>
+                <div class="relative ml-2">
+                    <img src="<?php echo ($data['gender']=='male') ? 'images/male.png' : 'images/female.png'; ?>"
+                        alt="User" class="h-10 w-10 rounded-full border-2 border-indigo-400 cursor-pointer object-cover shadow hover:border-indigo-300 transition"
+                        onclick="open_menu()">
+                    <div class="sub-menu glass rounded-xl shadow-2xl p-4" id="sub-menu">
+                        <div class="flex items-center gap-3 mb-3">
+                            <img src="<?php echo ($data['gender']=='male') ? 'images/male.png' : 'images/female.png'; ?>"
+                                class="h-10 w-10 rounded-full border border-indigo-400 object-cover" alt="User">
+                            <div>
+                                <p class="text-xs text-indigo-300">Hello,</p>
+                                <p class="font-semibold text-white"><?php echo $_SESSION["username"]; ?></p>
+                            </div>
+                        </div>
+                        <hr class="border-white/20 mb-3">
+                        <a href="user_profile.php" class="flex items-center gap-2 text-indigo-200 hover:text-white py-1.5 rounded-lg hover:bg-white/10 px-2 transition">
+                            <img src="img/profile.png" class="h-5 w-5" alt=""> Edit Profile
+                        </a>
+                        <a href="logout.php" class="flex items-center gap-2 text-indigo-200 hover:text-white py-1.5 rounded-lg hover:bg-white/10 px-2 transition mt-1">
+                            <img src="img/logout.png" class="h-5 w-5" alt=""> Log Out
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Hamburger Button (mobile only) -->
+            <button id="hamburger" class="md:hidden flex flex-col justify-center items-center w-9 h-9 rounded-lg hover:bg-indigo-800/50 transition gap-1.5 p-2" onclick="toggleMenu()" aria-label="Toggle menu">
+                <span id="bar1" class="block w-5 h-0.5 bg-indigo-300 transition-all duration-300 origin-center"></span>
+                <span id="bar2" class="block w-5 h-0.5 bg-indigo-300 transition-all duration-300"></span>
+                <span id="bar3" class="block w-5 h-0.5 bg-indigo-300 transition-all duration-300 origin-center"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="md:hidden px-4 pb-3">
+            <nav class="flex flex-col gap-1 bg-indigo-950/60 rounded-xl p-3 border border-white/10">
+                <a href="#home" class="flex items-center gap-3 px-4 py-3 rounded-lg text-indigo-200 hover:text-white hover:bg-indigo-800/50 text-sm font-medium transition">
+                    <span class="text-lg">🏠</span> Home
+                </a>
+                <a href="#About_Us" class="flex items-center gap-3 px-4 py-3 rounded-lg text-indigo-200 hover:text-white hover:bg-indigo-800/50 text-sm font-medium transition">
+                    <span class="text-lg">ℹ️</span> About Us
+                </a>
+                <a href="#Message_Us" class="flex items-center gap-3 px-4 py-3 rounded-lg text-indigo-200 hover:text-white hover:bg-indigo-800/50 text-sm font-medium transition">
+                    <span class="text-lg">💬</span> Message
+                </a>
+                <div class="border-t border-white/10 mt-1 pt-1">
+                    <a href="user_profile.php" class="flex items-center gap-3 px-4 py-3 rounded-lg text-indigo-200 hover:text-white hover:bg-indigo-800/50 text-sm font-medium transition">
+                        <span class="text-lg">👤</span> Profile
+                    </a>
+                    <a href="logout.php" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-red-800/30 text-red-300 hover:bg-red-700/50 hover:text-white text-sm font-medium transition mt-1">
+                        <span class="text-lg">🚪</span> Logout
+                    </a>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <!-- HERO -->
@@ -202,10 +245,39 @@ $data = mysqli_fetch_array($userdata);
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Desktop profile dropdown menu
         let submenu = document.getElementById("sub-menu");
         function open_menu() { submenu.classList.toggle("open"); }
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.relative')) submenu.classList.remove('open');
+        });
+
+        // Mobile menu toggle
+        var menuOpen = false;
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            var menu = document.getElementById('mobile-menu');
+            var bar1 = document.getElementById('bar1');
+            var bar2 = document.getElementById('bar2');
+            var bar3 = document.getElementById('bar3');
+            if (menuOpen) {
+                menu.classList.add('open');
+                bar1.style.transform = 'translateY(8px) rotate(45deg)';
+                bar2.style.opacity = '0';
+                bar3.style.transform = 'translateY(-8px) rotate(-45deg)';
+            } else {
+                menu.classList.remove('open');
+                bar1.style.transform = '';
+                bar2.style.opacity = '1';
+                bar3.style.transform = '';
+            }
+        }
+        // Close menu if clicked outside
+        document.addEventListener('click', function(e) {
+            var header = document.querySelector('header');
+            if (menuOpen && !header.contains(e.target)) {
+                toggleMenu();
+            }
         });
     </script>
 </body>

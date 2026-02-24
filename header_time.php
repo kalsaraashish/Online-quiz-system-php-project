@@ -25,7 +25,7 @@ $data = mysqli_fetch_array($userdata);
 <body>
     <header class="glass sticky top-0 z-50 px-4 sm:px-8 py-3 flex items-center justify-between shadow-xl" style="animation:none;">
         <div class="flex items-center gap-3">
-            <img src="img/quiz_time.png" alt="QuizMaster" class="h-10 w-10">
+            <img src="img/quiz_time.png" alt="QuizMaster" class="h-10 w-10 rounded-lg">
             <span class="font-bold text-lg text-indigo-300 hidden sm:inline">QuizMaster</span>
         </div>
         <nav class="flex items-center gap-4">

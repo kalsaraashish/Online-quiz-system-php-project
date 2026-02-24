@@ -28,8 +28,11 @@ $data = mysqli_fetch_array($userdata);
     <!-- HEADER -->
     <header class="glass sticky top-0 z-50 px-4 sm:px-8 py-3 flex items-center justify-between shadow-xl">
         <div class="flex items-center gap-3">
-            <img src="img/quiz_time.png" alt="QuizMaster" class="h-10 w-10">
-            <span class="font-bold text-lg text-indigo-300 hidden sm:inline">QuizMaster</span>
+            <a href="home.php">
+                <img src="img/quiz_time.png" alt="QuizMaster" class="h-10 w-10 rounded-lg">
+                </a>
+                <span class="font-bold text-lg text-indigo-300 hidden sm:inline">QuizMaster</span>
+            
         </div>
         <nav class="flex items-center gap-3 sm:gap-6">
             <a href="home.php" class="text-indigo-200 hover:text-white font-medium transition hidden md:inline">Home</a>
